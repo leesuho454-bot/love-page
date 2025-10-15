@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>I Love You &lt;3</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: linear-gradient(to top, #ffe6f0, #ffffff);
+      font-family: 'Segoe UI', sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .message {
+      position: relative;
+      z-index: 2;
+      color: #ff3366;
+      font-size: 36px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255, 100, 130, 0.3);
+    }
+
+    .play-button {
+      margin-top: 25px;
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #ff3366;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .heart {
+      position: absolute;
+      color: #ff3366;
+      font-size: 24px;
+      animation: floatHearts 10s linear infinite;
+      top: 100%;
+      opacity: 0.7;
+    }
+
+    @keyframes floatHearts {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-110vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="message">
+    I Love You, Abshar ❤️<br>
+    Forever and Always 💌<br>
+    Happy 1 Month Babe 💖<br>
+    You mean the world to me 💫
+  </div>
+
+  <button class="play-button" onclick="playOurSong()">▶️ Play Our Song</button>
+
+  <audio id="ourSong" loop>
+    <source src="https://docs.google.com/uc?export=download&id=1R3faOYL9vOtHU4E6RBcY8jCiTcs_Qgth" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    function playOurSong() {
+      const audio = document.getElementById("ourSong");
+      audio.play();
+    }
+
+    const heartCount = 30;
+    for (let i = 0; i < heartCount; i++) {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 30 + 20 + "px";
+      heart.style.animationDuration = 5 + Math.random() * 10 + "s";
+      heart.innerText = "❤️";
+      document.body.appendChild(heart);
+    }
+  </script>
+
+</body>
+</html>
